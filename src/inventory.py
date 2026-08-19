@@ -29,7 +29,10 @@ def remaining_after_order(available: int, requested: int) -> int:
 
 
 def apply_restock(available: int, incoming: int) -> int:
-    """Return stock level after a restock shipment arrives."""
+    """Return stock level after a restock shipment arrives.
+
+    Example: apply_restock(10, 5) == 15.
+    """
     if incoming < 0:
         raise ValueError("incoming quantity cannot be negative")
     return available + incoming
