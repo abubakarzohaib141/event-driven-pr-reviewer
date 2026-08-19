@@ -35,7 +35,7 @@ def apply_restock(available: int, incoming: int) -> int:
     """
     if incoming < 0:
         raise ValueError("incoming quantity cannot be negative")
-    return available + incoming
+    return available - incoming
 
 
 def is_out_of_stock(available: int) -> bool:
