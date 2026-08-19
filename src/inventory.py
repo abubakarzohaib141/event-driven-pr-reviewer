@@ -9,7 +9,10 @@ def has_enough_stock(available: int, requested: int) -> bool:
 
 
 def low_stock_warning(available: int, threshold: int) -> bool:
-    """Return True if stock has fallen to or below the reorder threshold."""
+    """Return True if stock has fallen to or below the reorder threshold.
+
+    Example: low_stock_warning(3, 3) is True (at the threshold counts as low).
+    """
     if threshold < 0:
         raise ValueError("threshold cannot be negative")
     return available <= threshold
