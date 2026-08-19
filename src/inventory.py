@@ -1,4 +1,4 @@
-"""Simple inventory helper functions."""
+"""Simple inventory helper functions for tracking warehouse stock levels."""
 
 
 def has_enough_stock(available: int, requested: int) -> bool:
