@@ -1,6 +1,11 @@
 import pytest
 
-from inventory import apply_restock, has_enough_stock, remaining_after_order
+from inventory import (
+    apply_restock,
+    has_enough_stock,
+    low_stock_warning,
+    remaining_after_order,
+)
 
 
 def test_has_enough_stock_true_when_more_available():
@@ -32,3 +37,16 @@ def test_apply_restock():
 def test_apply_restock_rejects_negative():
     with pytest.raises(ValueError):
         apply_restock(10, -1)
+
+
+def test_low_stock_warning_true_at_threshold():
+    assert low_stock_warning(3, 3) is True
+
+
+def test_low_stock_warning_false_above_threshold():
+    assert low_stock_warning(10, 3) is False
+
+
+def test_low_stock_warning_rejects_negative_threshold():
+    with pytest.raises(ValueError):
+        low_stock_warning(5, -1)
